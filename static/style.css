@@ -1,4 +1,3 @@
-
 body {
   font-family: Verdana, sans-serif;
   margin: 0;
@@ -14,16 +13,17 @@ body {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-
 }
 
 #top {
   border: 5px solid #ccc;
+  position: relative; /* Added position relative */
+  z-index: 1; /* Added z-index to ensure the image is positioned above the close button */
 }
 
 #close {
-  position: fixed;
-  top: 102%;
-  left:50%;
-  transform: translate(-102%, -50%);
+  position: absolute; /* Changed to absolute positioning */
+  top: 10px; /* Adjust top position to your preference */
+  right: 10px; /* Adjust right position to your preference */
+  z-index: 2; /* Ensure the close button is positioned above the image */
 }

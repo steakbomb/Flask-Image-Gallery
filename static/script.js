@@ -1,27 +1,26 @@
-function clicked_img(img,fp){
-          console.log(img.src);
+function clicked_img(img, fp) {
+  console.log(img.src);
 
-          var top=document.getElementById('top')
+  var top = document.getElementById('top');
 
-          top.src = img.src;
+  top.src = img.src;
+  top.hidden = false;
 
-          top.hidden=false;
+  var aspectRatio = img.naturalWidth / img.naturalHeight;
+  var maxHeight = window.innerHeight * 0.8; // Adjust the percentage as needed
+
+  if (aspectRatio > 1) {
+    top.style.width = "100%";
+    top.style.height = "auto";
+  } else {
+    top.style.width = "auto";
+    top.style.height = maxHeight + "px";
+  }
+
+  document.getElementById('close').hidden = false;
+}
 
 
-          if (img.naturalWidth<screen.width*0.6 && img.naturalHeight<screen.height*0.6) {
-
-            top.width=img.naturalWidth;
-            top.height=img.naturalHeight;
-
-          } else {
-
-            top.width=screen.width*0.6;
-            top.height=img.naturalHeight/img.naturalWidth*top.width;
-
-          }
-
-          document.getElementById('close').hidden = false;
- }
 
 
 function do_close(){
